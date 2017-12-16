@@ -6,19 +6,19 @@ contract wallet{
 	}
 	coinWallet myWallet;
 	mapping(address => coinWallet) balances;
-	function wallet(){
+	function wallet() public {
 		balances[msg.sender].redCoin = 500;
 		balances[msg.sender].greenCoin = 250;
 	}
 	
-	function sendRed(address receiver,uint amount) returns(bool success){
+	function sendRed(address receiver,uint amount) public returns(bool success){
 	    if(balances[msg.sender].redCoin<amount)return false;
 	    balances[msg.sender].redCoin-=amount;
 	    balances[receiver].redCoin+=amount;
 	    return true;
 	}
     
-    function sendGreen(address receiver,uint amount) returns(bool success){
+    function sendGreen(address receiver,uint amount) public returns(bool success){
 	    if(balances[msg.sender].greenCoin<amount)return false;
 	    balances[msg.sender].greenCoin-=amount;
 	    balances[receiver].greenCoin+=amount;
