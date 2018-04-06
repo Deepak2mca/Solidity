@@ -1,0 +1,18 @@
+pragma solidity ^0.4.18;
+//Contract name
+contract Greet{  
+// variable to store message
+    string public message;
+    //parameterise constructor 
+    function Greet(string Initailmsg) public {
+        message = Initailmsg;
+    }
+    //The purpose of this function to set message.
+    function setMessage(string msg) public{
+        message =  msg;
+    }
+    //The purpose of this methos to retrive values from contract variable 
+    function getMessage() public view returns(string){
+        return message;
+    }
+}
